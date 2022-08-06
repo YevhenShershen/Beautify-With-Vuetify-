@@ -1,32 +1,37 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+<v-card width="400" class="mt-5 mx-auto">
+  <v-card-title>
+    <h1 class="display-1">Login</h1>
+  </v-card-title>
+  <v-card-text>
+    <v-form>
+      <v-text-field
+      label="Username"
+      prepend-icon="mdi-account-circle"></v-text-field>
+      <v-text-field
+      type="password"
+      label="Password"
+      prepend-icon="mdi-lock"
+      append-icon="mdi-eye-off"></v-text-field>
+    </v-form>
+  </v-card-text>
+  <v-card-action>
+    <v-btn color ="success">Register</v-btn>
+    <v-btn color="info">Login</v-btn>
+  </v-card-action>
+</v-card>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from "vue";
 
-#nav {
-  padding: 30px;
+export default Vue.extend({
+  name: "App",
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  data: () => ({
+    //
+  }),
+});
+</script>
