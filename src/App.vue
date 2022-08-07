@@ -7,10 +7,15 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn text rounded color="blue lighten-4"> Login </v-btn>
-
-      <v-btn text rounded color="blue lighten-4"> Home </v-btn>
-
+      <v-btn
+        v-for="link in links"
+        :key="`${link.label}-header-link`"
+        text
+        rounded
+        color="blue lighten-4"
+        :to="link.url"
+        >{{ link.label }}</v-btn
+      >
       <v-menu left bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
@@ -25,72 +30,49 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <v-content>
-      <v-card width="400" class="mt-5 mx-auto">
-        <v-card-title>
-          <h1 class="display-1">Login</h1>
-        </v-card-title>
-        <v-card-text>
-          <v-form>
-            <v-text-field
-              label="Username"
-              prepend-icon="mdi-account-circle"
-            ></v-text-field>
-            <v-text-field
-              :type="showPassword ? 'test' : 'password'"
-              label="Password"
-              prepend-icon="mdi-lock"
-              :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-              @click:append="showPassword = !showPassword"
-            ></v-text-field>
-          </v-form>
-        </v-card-text>
-        <v-divider></v-divider>
-        <v-card-actions>
-          <v-btn color="success">Register</v-btn>
-          <v-spacer></v-spacer>
-          <v-btn color="info">Login</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-content>
-      <v-footer
-    color="primary lighten-1"
-    padless
-  >
-    <v-row
-      justify="center"
-      no-gutters
-    >
+    <router-view></router-view>
+    <v-footer color="primary lighten-1" padless>
+      <v-row justify="center" no-gutters>
       <v-btn
         v-for="link in links"
-        :key="link"
-        color="white"
+        :key="`${link.label}-footer-link`"
         text
         rounded
-        class="my-2"
+        color="blue lighten-4"
+        :to="link.url"
+        >{{ link.label }}</v-btn
       >
-        {{ link }}
-      </v-btn>
-      <v-col
-        class="primary lighten-1 py-4 text-center white--text"
-        cols="12"
-      >
-        {{ new Date().getFullYear() }} — <strong>Footer App</strong>
-      </v-col>
-    </v-row>
-  </v-footer>
+        <v-col class="primary lighten-1 py-4 text-center white--text" cols="12">
+          {{ new Date().getFullYear() }} — <strong>Footer App</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-
+import Login from "./components/Login.vue";
 export default Vue.extend({
   name: "App",
-
+  components: {
+    // Login
+  },
   data: () => ({
-    showPassword: false,
-    links: ['Login', 'Hello']
+    links: [
+      {
+        label: "Home",
+        url: "/",
+      },
+      {
+        label: "Login",
+        url: "/login",
+      },
+       {
+        label: "Dashboard",
+        url: "/dashboard",
+      },
+    ],
   }),
 });
 </script>
