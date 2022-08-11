@@ -3,34 +3,7 @@
     <h1>Dashboard</h1>
     <!-- v-row создержит 12 колонок автоматически -->
     <v-row>
-      <v-col cols="3">
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :items-per-page="5"
-          class="elevation-1"
-          @click:row="selectRow"
-        ></v-data-table
-      ></v-col>
-      <v-col cols="3">
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :items-per-page="5"
-          class="elevation-1"
-          @click:row="selectRow"
-        ></v-data-table
-      ></v-col>
-            <v-col cols="3">
-        <v-data-table
-          :headers="headers"
-          :items="desserts"
-          :items-per-page="5"
-          class="elevation-1"
-          @click:row="selectRow"
-        ></v-data-table
-      ></v-col>
-            <v-col cols="3">
+      <v-col v-for="item in 4" :key="item" xl="3" lg="4" md="6" xs="12">
         <v-data-table
           :headers="headers"
           :items="desserts"
@@ -207,3 +180,4 @@ export default {
   },
 };
 </script>
+<!-- BreakPoints: https://vuetifyjs.com/en/features/breakpoints/  -->

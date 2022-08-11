@@ -33,15 +33,15 @@
     <router-view></router-view>
     <v-footer color="primary lighten-1" padless>
       <v-row justify="center" no-gutters>
-      <v-btn
-        v-for="link in links"
-        :key="`${link.label}-footer-link`"
-        text
-        rounded
-        color="blue lighten-4"
-        :to="link.url"
-        >{{ link.label }}</v-btn
-      >
+        <v-btn
+          v-for="link in links"
+          :key="`${link.label}-footer-link`"
+          text
+          rounded
+          color="blue lighten-4"
+          :to="link.url"
+          >{{ link.label }}</v-btn
+        >
         <v-col class="primary lighten-1 py-4 text-center white--text" cols="12">
           {{ new Date().getFullYear() }} — <strong>Footer App</strong>
         </v-col>
@@ -54,8 +54,7 @@
 import Vue from "vue";
 export default Vue.extend({
   name: "App",
-  components: {
-  },
+  components: {},
   data: () => ({
     links: [
       {
@@ -66,7 +65,7 @@ export default Vue.extend({
         label: "Login",
         url: "/login",
       },
-       {
+      {
         label: "Dashboard",
         url: "/dashboard",
       },
@@ -74,3 +73,10 @@ export default Vue.extend({
   }),
 });
 </script>
+
+<!-- flex System используется в такой спосо
+      <div class="test d-flex flex-row">
+        <p>1</p>
+        <p>2</p>
+      </div>
+      -->
