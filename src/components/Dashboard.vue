@@ -13,7 +13,7 @@
         ></v-data-table
       ></v-col>
     </v-row>
-<!-- если мы в v-row создаем две v-col то оно автоматически делит на две колонки с шириной 50 % -->
+    <!-- если мы в v-row создаем две v-col то оно автоматически делит на две колонки с шириной 50 % -->
     <v-row>
       <v-col>
         <v-data-table
@@ -35,7 +35,7 @@
       </v-col>
     </v-row>
     <!-- создаем две колонки. Одна из них имеет ширину 8 колонок а вторая автоматом занимает остаток то есть 4 -->
-      <v-row>
+    <v-row>
       <v-col cols="8">
         <v-data-table
           :headers="headers"
@@ -62,7 +62,22 @@
       class="elevation-1"
       @click:row="selectRow"
     ></v-data-table>
-    <v-snackbar v-model="snackbar">
+    <!-- //
+    используем краткую форму написания $vuetify.breakpoint и с помощью нее управляем компонентами
+    Conditionals
+      xsOnly: boolean
+      smOnly: boolean
+      smAndDown: boolean
+      smAndUp: boolean
+      mdOnly: boolean
+      mdAndDown: boolean
+      mdAndUp: boolean
+      lgOnly: boolean
+      lgAndDown: boolean
+      lgAndUp: boolean
+      xlOnly: boolean
+  -->
+    <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.smAndUp">
       <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
         You have selected {{ currentItem }}
       </v-btn>
