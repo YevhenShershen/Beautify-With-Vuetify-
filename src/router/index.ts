@@ -12,7 +12,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/login",
-    name: "login",
+    name: "Login",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -21,7 +21,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "/dashboard",
-    name: "dashboard",
+    name: "Dashboard",
     component: () => import("../components/Dashboard.vue"),
   },
 ];

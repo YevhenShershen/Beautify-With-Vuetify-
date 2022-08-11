@@ -1,6 +1,87 @@
 <template>
   <v-main>
     <h1>Dashboard</h1>
+    <!-- v-row создержит 12 колонок автоматически -->
+    <v-row>
+      <v-col cols="3">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table
+      ></v-col>
+      <v-col cols="3">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table
+      ></v-col>
+            <v-col cols="3">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table
+      ></v-col>
+            <v-col cols="3">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table
+      ></v-col>
+    </v-row>
+<!-- если мы в v-row создаем две v-col то оно автоматически делит на две колонки с шириной 50 % -->
+    <v-row>
+      <v-col>
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table
+      ></v-col>
+      <v-col>
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table>
+      </v-col>
+    </v-row>
+    <!-- создаем две колонки. Одна из них имеет ширину 8 колонок а вторая автоматом занимает остаток то есть 4 -->
+      <v-row>
+      <v-col cols="8">
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table
+      ></v-col>
+      <v-col>
+        <v-data-table
+          :headers="headers"
+          :items="desserts"
+          :items-per-page="5"
+          class="elevation-1"
+          @click:row="selectRow"
+        ></v-data-table>
+      </v-col>
+    </v-row>
     <v-data-table
       :headers="headers"
       :items="desserts"
