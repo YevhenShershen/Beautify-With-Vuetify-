@@ -69,6 +69,10 @@ export default Vue.extend({
         label: "Dashboard",
         url: "/dashboard",
       },
+        {
+        label: "Signup",
+        url: "/signup",
+      },
     ],
   }),
 });
