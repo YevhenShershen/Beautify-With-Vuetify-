@@ -2,7 +2,7 @@
   <v-main>
     <h1>Dashboard</h1>
     <!-- v-row создержит 12 колонок автоматически -->
-    <v-row>
+    <v-row id="below-the fold" v-intersect="showMoreContent">
       <v-col v-for="item in 4" :key="item" xl="3" lg="4" md="6" xs="12">
         <v-data-table
           :headers="headers"
@@ -35,7 +35,7 @@
       </v-col>
     </v-row>
     <!-- создаем две колонки. Одна из них имеет ширину 8 колонок а вторая автоматом занимает остаток то есть 4 -->
-    <v-row>
+    <v-row v-if="loadNewContent" class="loadNewContent">
       <v-col cols="8">
         <v-data-table
           :headers="headers"
@@ -78,7 +78,7 @@
       xlOnly: boolean
   -->
     <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.smAndUp">
-      <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+      <v-btn color="pink" text  @click="snackbar = false">
         You have selected {{ currentItem }}
       </v-btn>
     </v-snackbar>
@@ -89,6 +89,8 @@
 export default {
   data() {
     return {
+      loadNewContent: false,
+      isIntersecting: false,
       currentItem: "",
       snackbar: false,
       headers: [
@@ -192,7 +194,15 @@ export default {
     selectRow(event) {
       (this.snackbar = true), (this.currentItem = event.name);
     },
+    showMoreContent(entries){
+      console.log(entries[0].isIntersecting)
+      this.loadNewContent = entries[0].isIntersecting
+    }
   },
 };
 </script>
 <!-- BreakPoints: https://vuetifyjs.com/en/features/breakpoints/  -->
+<!-- Это клевая тема при скролировании у нас появляются и исчещают компоненты
+  https://vuetifyjs.com/en/directives/intersect/
+  https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry
+ -->
